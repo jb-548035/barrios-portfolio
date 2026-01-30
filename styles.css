@@ -1,0 +1,158 @@
+/* Color Palette 
+   #d0ccd0: Background Gray
+   #fbfcff: Card White
+   #605856: Subtext/Muted
+   #1c6e8c: Primary Action Blue
+   #274156: Headings/Text
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-image: url('/assets/bg-2.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fbfcff;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #274156;
+    font-size: 24px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #fbfcff;
+}
+
+p.subtitle {
+    color: #605856;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #274156;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #d0ccd0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    color: #274156;
+}
+
+input:focus {
+    border-color: #1c6e8c;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #1c6e8c;
+    color: #fbfcff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #274156;
+}
+
+.footer-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #605856;
+}
+
+.footer-link a {
+    color: #1c6e8c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-link a:hover {
+    text-decoration: underline;
+}
+
+/* ... keep your existing styles ... */
+
+/* Entry Animation for the Container */
+.container {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Validation Styling */
+.input-hint {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #605856;
+    transition: color 0.3s;
+}
+
+.input-hint.valid { color: #27ae60; }
+.input-hint.invalid { color: #e74c3c; }
+
+input.is-invalid {
+    border-color: #e74c3c !important;
+    animation: shake 0.4s ease-in-out;
+}
+
+input.is-valid {
+    border-color: #27ae60 !important;
+}
+
+/* Shake Animation for Errors */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Button Active State */
+.btn-submit:active {
+    transform: scale(0.98);
+}

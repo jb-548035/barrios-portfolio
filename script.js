@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
 const navbar = document.querySelector('.navbar');
@@ -12,10 +13,16 @@ const setTheme = (theme) => {
         ? '<i class="bi bi-moon-stars"></i>'
         : '<i class="bi bi-sun"></i>';
 };
+=======
+// Theme Toggle Logic
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+>>>>>>> fe805764f6c44d8e77cfb4dce740fcd51a8ac67a
 
 themeToggle.addEventListener('click', () => {
     const currentTheme = html.getAttribute('data-bs-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+<<<<<<< HEAD
     setTheme(newTheme);
     themeToggle.animate([
         { transform: 'scale(0.95)' },
@@ -116,3 +123,30 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('resize', updateScroll);
+=======
+    html.setAttribute('data-bs-theme', newTheme);
+    
+    // Switch Icon
+    themeToggle.innerHTML = newTheme === 'light' 
+        ? '<i class="bi bi-moon-stars"></i>' 
+        : '<i class="bi bi-sun"></i>';
+});
+
+// Scroll Reveal Logic
+const reveal = () => {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const revealTop = el.getBoundingClientRect().top;
+        const revealPoint = 150;
+
+        if (revealTop < windowHeight - revealPoint) {
+            el.classList.add('active');
+        }
+    });
+};
+
+window.addEventListener('scroll', reveal);
+// Run once on load
+reveal();
+>>>>>>> fe805764f6c44d8e77cfb4dce740fcd51a8ac67a

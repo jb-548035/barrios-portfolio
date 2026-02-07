@@ -1,5 +1,4 @@
-﻿
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -26,10 +25,6 @@
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">JB<span class="brand-dot">.</span></a>
             <div class="d-flex align-items-center gap-2">
-                <span class="status-pill d-none d-sm-inline-flex">
-                    <span class="status-dot"></span>
-                    Open for work
-                </span>
                 <button class="btn btn-outline-secondary btn-sm theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
                     <i class="bi bi-moon-stars"></i>
                 </button>
@@ -41,96 +36,178 @@
         <div class="bento-grid">
             <section class="bento-item hero-tile reveal" data-reveal="true">
                 <div class="p-4 hero-content">
-                    <span class="badge bg-primary mb-2 hero-badge">Full Stack Developer</span>
-                    <div class="hero-profile">
-                        <div class="profile-frame">
-                            <img src="assets/bg-profile.png" alt="Janna Barrios portrait">
-                        </div>
-                    </div>
+                    <span class="badge bg-primary mb-2 hero-badge">FULL STACK DEVELOPER</span>
                     <h1 class="display-5 fw-bold hero-title">Hi, I'm Janna Barrios.</h1>
-                    <p class="lead text-muted hero-subtitle">I build digital experiences that are functional, beautiful, and user-centric.</p>
+                    <p class="lead hero-subtitle">            
+                        Passionate about building practical and innovative digital solutions.
+                    </p>
                     <div class="hero-actions mt-4">
-                        <button class="btn btn-primary btn-lg glow-btn">View Projects</button>
-                        <button class="btn btn-outline-secondary btn-lg">Contact</button>
+                        <button id="contactBtn" class="btn btn-outline-secondary btn-lg">Contact</button>
                     </div>
                 </div>
-                
+            </section>
+        
+            <!-- Profile Avatar Row -->
+            <article class="bento-item profile-tile reveal" data-reveal="true">
+                <img src="assets/bg-profile-avatar.png" alt="Fintech dashboard preview" loading="lazy">
+            </article>
+
+            <!-- About Row -->
+            <section class="bento-item about-tile reveal" data-reveal="true">
+                <h5 class="mb-2 fw-bold"><i class="bi bi-info-circle"></i>ABOUT ME</h5>
+                <p class="text-muted mb-0">
+                    I strive to improve my skills continuously and enjoy delivering solutions that are functional, visually appealing, and exceed expectations. My approach is innovative and “outside the box,” aiming to make a real impact in every project I tackle.
+                </p>
             </section>
 
+            <!-- Status Row -->
             <section class="bento-item status-tile reveal" data-reveal="true">
                 <div class="d-flex align-items-center gap-2">
                     <span class="status-dot" aria-hidden="true"></span>
                     <span class="fw-medium">Available for work</span>
                 </div>
-                <small class="text-muted mt-2">Remote • Hybrid • Freelance</small>
             </section>
-
-            <section class="bento-item skills-tile reveal" data-reveal="true">
-                <h5 class="mb-3 fw-bold">Tech Stack</h5>
-                <div class="d-flex flex-wrap gap-2">
-                    <span class="badge border skill-tag" data-delay="0">Frontend: JavaScript</span>
-                    <span class="badge border skill-tag" data-delay="80">React</span>
-                    <span class="badge border skill-tag" data-delay="160">Tailwind CSS</span>
-                    <span class="badge border skill-tag" data-delay="240">Bootstrap</span>
-                    <span class="badge border skill-tag" data-delay="320">Backend: MySQL</span>
-                    <span class="badge border skill-tag" data-delay="400">Tools: VS Code</span>
-                    <span class="badge border skill-tag" data-delay="480">Git</span>
-                    <span class="badge border skill-tag" data-delay="560">Postman</span>
-                </div>
-            </section>
-
-            <section class="bento-item about-tile reveal" data-reveal="true">
-                <h5 class="mb-2 fw-bold">About Me</h5>
-                <p class="text-muted mb-0">I’m Janna Barrios — a Full-Stack developer focused on building functional, beautiful, and user-centered digital experiences.</p>
-            </section>
-
-            <section class="bento-item education-tile reveal" data-reveal="true">
-                <h6 class="fw-bold">Education</h6>
-                <ul class="education-list mb-0">
-                    <li><strong>Madrid National High School</strong> — STE</li>
-                    <li><strong>University of Mindanao</strong> — BSIT</li>
-                </ul>
-            </section>
-
+            
+            <!-- Hobbies Row -->
             <section class="bento-item hobbies-tile reveal" data-reveal="true">
-                <h6 class="fw-bold">Hobbies</h6>
-                <div class="d-flex flex-column gap-1">
-                    <span>Produce music</span>
-                    <span>Online games</span>
-                    <span>Outdoor activities</span>
+                <h6 class="fw-bold mb-2"><i class="bi bi-controller"></i>HOBBIES</h6>
+
+                <div class="hobby-display" id="hobbyDisplay">
+
+                    <img src="assets/cooking-food.png"
+                        alt="Hobby background"
+                        id="hobbyImage"
+                        loading="lazy">
+                    <div class="hobby-overlay">
+                        <span id="hobbyLabel">Cooking Food</span>
+                    </div>
+
+                    <div class="hobby-controls">
+                        <button id="prevHobby" class="hobby-btn">
+                            <i class="bi bi-arrow-left-short"></i>
+                        </button>
+
+                        <button id="nextHobby" class="hobby-btn">
+                            <i class="bi bi-arrow-right-short"></i>
+                        </button>
+                    </div>
+
                 </div>
             </section>
 
+            <!-- Education Row -->
+            <section class="bento-item education-tile reveal" data-reveal="true">
+                <h6 class="fw-bold mb-2"><i class="bi bi-mortarboard"></i>EDUCATION</h6>
+
+                <div class="education-item">
+                    <div class="school-logo">
+                        <img src="assets/mnhs-logo.png" alt="Madrid National High School Logo">
+                    </div>
+                    <div class="school-info">
+                        <strong>Madrid National High School</strong>
+                        <span>STE</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="school-logo">
+                        <img src="assets/um-logo.png" alt="University of Mindanao Logo">
+                    </div>
+                    <div class="school-info">
+                        <strong>University of Mindanao</strong>
+                        <span>BSIT</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications Row -->
             <section class="bento-item certs-tile reveal" data-reveal="true">
-                <h6 class="fw-bold">Recent Certification</h6>
-                <div class="certs-list text-muted">Database — <em>University of Mindanao</em></div>
+                <h6 class="fw-bold"><i class="bi bi-patch-check"></i>RECENT CERTIFICATIONS</h6>
+                <div class="certs-list text-muted">
+                    <strong>Database</strong> —
+                    <em>University of Mindanao</em>
+                </div>
+                <div class="certs-list text-muted">
+                    <strong>HTML & CSS</strong> — <em>University of Mindanao</em>
+                </div>
             </section>
 
+            <!-- Tech Stack Row -->
+            <section class="bento-item skills-tile reveal" data-reveal="true">
+                <h5 class="mb-3 fw-bold"><i class="bi bi-layers"></i>TECH STACK</h5>
+
+                <div class="tech-group">
+                    <div class="tech-group-title">Frontend</div>
+                    <div class="tech-list">
+                        <span class="badge border skill-tag" data-delay="0">JavaScript</span>
+                        <span class="badge border skill-tag" data-delay="80">React</span>
+                        <span class="badge border skill-tag" data-delay="160">Tailwind CSS</span>
+                        <span class="badge border skill-tag" data-delay="240">Bootstrap</span>
+                    </div>
+                </div>
+
+                <div class="tech-divider"></div>
+
+                <div class="tech-group">
+                    <div class="tech-group-title">Backend</div>
+                    <div class="tech-list">
+                        <span class="badge border skill-tag" data-delay="320">MySQL</span>
+                    </div>
+                </div>
+
+                <div class="tech-divider"></div>
+
+                <div class="tech-group">
+                    <div class="tech-group-title">Tools</div>
+                    <div class="tech-list">
+                        <span class="badge border skill-tag" data-delay="400">VS Code</span>
+                        <span class="badge border skill-tag" data-delay="480">Git</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Row -->
             <article class="bento-item project-tile reveal" data-reveal="true">
-                <img src="/assets/background.png" alt="Fintech dashboard preview" loading="lazy">
-                <div class="project-overlay">
-                    <div>
-                        <p class="project-label">Fintech Dashboard</p>
-                        <h5 class="m-0">Realtime analytics for smart finance teams.</h5>
-                    </div>
-                </div>
+                <img src="assets/background.png" alt="My PC Setup" loading="lazy">
             </article>
 
-            <section class="bento-item social-tile reveal" data-reveal="true">
-                <a href="https://github.com/jb-548035" target="_blank" class="bi bi-github" data-tooltip="GitHub" aria-label="GitHub"></a>
-                <a href="https://www.instagram.com/unknown.error0114/" target="_blank" class="bi bi-instagram" data-tooltip="Instagram" aria-label="Instagram"></a>                <a href="https://www.facebook.com/unknown.error3014/" target="_blank" class="bi bi-facebook" data-tooltip="Facebook" aria-label="Facebook"></a>
-            </section>
+            <!-- Contact Row -->
+            <section class="bento-item contact-tile reveal" data-reveal="true">
+                <h5 class="mb-3 fw-bold contact-title"><i class="bi bi-envelope"></i>Contact Me</h5>
 
-            <article class="bento-item project-tile wide reveal" data-reveal="true">
-                <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80" alt="AI image generator preview" loading="lazy">
-                <div class="project-overlay">
-                    <div>
-                        <p class="project-label">AI Image Generator</p>
-                        <h5 class="m-0">Prompt-to-visuals with curated styles.</h5>
+                <form class="contact-form">
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="contactEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="contactEmail" placeholder="you@example.com" required>
                     </div>
-                </div>
-            </article>
+
+                    <!-- Message -->
+                    <div class="mb-3">
+                        <label for="contactMessage" class="form-label">Message</label>
+                        <textarea class="form-control" id="contactMessage" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="contact-submit">Send Message</button>
+                </form>
+            </section> 
+
         </div>
+
+        <footer class="footer-flex">
+            <span class="footer-tile">© 2026. All Rights Reserved.</span>
+
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/unknown.error3014/" target="_blank" class="bi bi-facebook" data-tooltip="Facebook" aria-label="Facebook"></a>
+                <a href="https://github.com/jb-548035" target="_blank" class="bi bi-github" data-tooltip="GitHub" aria-label="GitHub"></a>
+                <a href="https://www.instagram.com/unknown.error0114/" target="_blank" class="bi bi-instagram" data-tooltip="Instagram" aria-label="Instagram"></a>
+                <a href="https://twitter.com" target="_blank" class="bi bi-twitter-x" data-tooltip="Twitter" aria-label="Twitter"></a>
+            </div>
+        </footer>
+
+
+
+
     </main>
 
     <script src="script.js"></script>

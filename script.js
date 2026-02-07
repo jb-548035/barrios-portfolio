@@ -13,6 +13,17 @@ const setTheme = (theme) => {
         : '<i class="bi bi-sun"></i>';
 };
 
+// Smooth scroll to contact section
+document.addEventListener('DOMContentLoaded', () => {
+    const contactBtn = document.getElementById('contactBtn');
+    const contactTile = document.querySelector('.contact-tile');
+
+    contactBtn.addEventListener('click', () => {
+        contactTile.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
+
 themeToggle.addEventListener('click', () => {
     const currentTheme = html.getAttribute('data-bs-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -66,41 +77,82 @@ const setupSkillsSequence = () => {
         tag.style.transitionDelay = `${delay}ms`;
     });
 };
-
-const applyMagneticHover = () => {
-    const tiles = document.querySelectorAll('.bento-item');
-    const canHover = window.matchMedia('(hover: hover)').matches;
-    if (!canHover) return;
-    tiles.forEach(tile => {
-        let rafId = null;
-        const strength = tile.classList.contains('project-tile') ? 16 : 10;
-
-        const handleMove = (event) => {
-            const rect = tile.getBoundingClientRect();
-            const x = event.clientX - rect.left - rect.width / 2;
-            const y = event.clientY - rect.top - rect.height / 2;
-            const rotateX = (-y / rect.height) * 6;
-            const rotateY = (x / rect.width) * 6;
-
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = requestAnimationFrame(() => {
-                tile.style.transform = `translate3d(${x / strength}px, ${y / strength}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-        };
-
-        const handleLeave = () => {
-            if (rafId) cancelAnimationFrame(rafId);
-            tile.style.transform = 'translate3d(0, 0, 0) rotateX(0) rotateY(0)';
-        };
-
-        tile.addEventListener('mousemove', handleMove);
-        tile.addEventListener('mouseleave', handleLeave);
-    });
-};
-
 const setupSmoothScroll = () => {
     document.documentElement.style.scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
 };
+const hobbies = [
+    { img: "/assets/cooking-food.png", label: "Cooking Food" },
+    { img: "/assets/running.png", label: "Early Morning Runs" },
+    { img: "/assets/playing-online-games.png", label: "Playing Online Games" },
+    { img: "/assets/art.png", label: "Making Art" },
+    { img: "/assets/produce-music.png", label: "Producing Music" }
+];
+
+let hobbyIndex = 0;
+let hobbyInterval = null;
+let autoTimer;
+
+const hobbyDisplay = document.getElementById("hobbyDisplay");
+const hobbyLabel = document.getElementById("hobbyLabel");
+const hobbyImage = document.getElementById('hobbyImage');
+const hobbyText = document.getElementById('hobbyText');
+
+const switchHobby = () => {
+    if (!hobbyImage || !hobbyLabel) return;
+
+    hobbyImage.style.opacity = 0;
+
+    setTimeout(() => {
+        hobbyIndex = (hobbyIndex + 1) % hobbies.length;
+        hobbyImage.src = hobbies[hobbyIndex].img;
+        hobbyLabel.textContent = hobbies[hobbyIndex].label;
+        hobbyImage.style.opacity = 1;
+    }, 350);
+};
+
+
+const startHobbyRotation = () => {
+    if (prefersReducedMotion) return;
+    hobbyInterval = setInterval(switchHobby, 3200);
+};
+
+const stopHobbyRotation = () => {
+    clearInterval(hobbyInterval);
+};
+
+const prevBtn = document.getElementById('prevHobby');
+const nextBtn = document.getElementById('nextHobby');
+
+// Function to show a hobby by index
+const showHobby = (index) => {
+    if (!hobbyImage || !hobbyLabel) return;
+
+    hobbyImage.classList.add('fade-change');
+
+    setTimeout(() => {
+        hobbyIndex = (index + hobbies.length) % hobbies.length; // ensures circular
+        hobbyImage.src = hobbies[hobbyIndex].img;
+        hobbyLabel.textContent = hobbies[hobbyIndex].label;
+        hobbyImage.classList.remove('fade-change');
+    }, 200);
+};
+
+// Click Events
+prevBtn.addEventListener('click', () => {
+    showHobby(hobbyIndex - 1);
+
+    // Reset auto rotation timer
+    clearInterval(hobbyInterval);
+    startHobbyRotation();
+});
+
+nextBtn.addEventListener('click', () => {
+    showHobby(hobbyIndex + 1);
+
+    // Reset auto rotation timer
+    clearInterval(hobbyInterval);
+    startHobbyRotation();
+});
 
 window.addEventListener('scroll', updateScroll);
 window.addEventListener('load', () => {
@@ -109,6 +161,7 @@ window.addEventListener('load', () => {
     updateScroll();
     revealElements();
     setupSkillsSequence();
+    startHobbyRotation();
     if (!prefersReducedMotion) {
         applyMagneticHover();
     }

@@ -3,10 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullNameInput = document.querySelector('input[placeholder="John Doe"]');
     const emailInput = document.querySelector('input[placeholder="name@example.com"]');
     const passwordInput = document.getElementById('password');
-    const confirmPasswordInput = document.getElementById('confirm-password');
     const reqLength = document.getElementById('req-length');
     const reqNumber = document.getElementById('req-number');
-    const additionalInfo = document.getElementById('additional-info');
 
     // Live Password Validation Logic
     passwordInput.addEventListener('input', () => {
@@ -28,20 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             reqNumber.classList.add('invalid');
             reqNumber.innerText = '● At least 1 number';
-        }
-    });
-
-    // 2. Placeholder Disappearance for Textarea
-    additionalInfo.addEventListener('focus', () => {
-        if (additionalInfo.value === '') {
-            additionalInfo.setAttribute('data-placeholder', additionalInfo.placeholder);
-            additionalInfo.placeholder = '';
-        }
-    });
-
-    additionalInfo.addEventListener('blur', () => {
-        if (additionalInfo.value === '') {
-            additionalInfo.placeholder = additionalInfo.getAttribute('data-placeholder');
         }
     });
 

@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // If all fields are valid, redirect to login.html
-        window.location.href = 'login.html';
+        // If all fields are valid, redirect to index.html
+        window.location.href = 'index.html';
     });
 });
